@@ -1,11 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import store, { loadUsers } from './store.js';
-
-store.dispatch(loadUsers());
+import store from './store.js';
+import { Provider } from 'react-redux';
+import App from './App.js';
 
 const root = document.getElementById('root');
 
-render(<hr />, root);
+render(
+<Provider store = { store }>
+  <App />
+</Provider>, root);
 
 
