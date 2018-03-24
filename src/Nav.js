@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Nav = ({users})=> {
   return (
     <ul>
       <li>
-        Home
+        <Link to = '/'>
+          Home
+        </Link>
       </li>
       <li>
-        Users ({ users.length })
+        <Link to = '/users'>
+          Users ({ users.length })
+        </Link>
       </li>
     </ul>
   );

@@ -24,7 +24,7 @@ app.put('/api/users/:id', (req, res, next)=> {
   User.findById(req.params.id)
   .then( user => {
     Object.assign(user, req.body);
-    return user.save()
+    return user.save();
   })
   .then( user => res.send(user))
   .catch(next);
