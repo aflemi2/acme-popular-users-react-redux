@@ -4,6 +4,7 @@ const path = require('path');
 
 app.use(require('body-parser').json());
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
+app.use('/vendor', express.static(path.join(__dirname, '')));
 app.get('/', (req, res, next)=>{
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -52,9 +53,18 @@ const User = conn.define('user', {
   rating: Sequelize.INTEGER
 });
 
+User.prototype.add = function(){
+  if(!this.rating){return this.rating = 1;}
+  this.rating++;
+};
+
 conn.sync({ force: true })
 .then( ()=> Promise.all([
   User.create({ name: 'Goku', rating: 9001}),
   User.create({ name: 'Gohan', rating: 10}),
   User.create({ name: 'Vegeta', rating: 5000}),
 ]));
+
+module.exports = {
+  User
+};
