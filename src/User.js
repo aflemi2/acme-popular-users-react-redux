@@ -45,7 +45,7 @@ class User extends Component{
     return (
       <div>
         <h1>{ user.name }</h1>
-        <img src={`/vendor/img/${user.id%6+1}.jpg`} />
+        <img src={`/vendor/img/${user.id%7+1}.jpg`} />
           <form onSubmit = { onSave }>
             <input value = { name } onChange = { onChangeName } />
             <button>Update</button>

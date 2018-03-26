@@ -53,16 +53,11 @@ const User = conn.define('user', {
   rating: Sequelize.INTEGER
 });
 
-User.prototype.add = function(){
-  if(!this.rating){return this.rating = 1;}
-  this.rating++;
-};
-
 conn.sync({ force: true })
 .then( ()=> Promise.all([
   User.create({ name: 'Goku', rating: 9001}),
   User.create({ name: 'Gohan', rating: 10}),
-  User.create({ name: 'Vegeta', rating: 5000}),
+  User.create({ name: 'Moe', rating: 5000}),
 ]));
 
 module.exports = {
