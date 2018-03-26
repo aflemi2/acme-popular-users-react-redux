@@ -16,6 +16,18 @@ const Nav = ({users})=> {
         </Link>
       </li>
       <li>
+        {users.map((user, index) => {
+          if(index === 0){
+            return (
+              <Link to = '/users/1' key={user.id}>
+              {/* ^^hard coded route */}
+                Highest Rated User ({user.name})
+              </Link>
+              );
+          }
+        })}
+      </li>
+      <li>
         <Link to = '/users/create'>
           Create A User
         </Link>

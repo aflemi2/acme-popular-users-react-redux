@@ -10,6 +10,9 @@ const usersReducer = (state = [], action)=> {
   switch(action.type){
     case SET_USERS:
       state = action.users;
+      state.sort(function(a, b){
+        return a.rating < b.rating;
+      });
       break;
     case UPDATE_USER:
       state = state.map( user => user.id === action.user.id ? action.user : user);
