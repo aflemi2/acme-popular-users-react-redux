@@ -12,6 +12,9 @@ const Users = ({ users })=> {
             return (
               <li key = { user.id }>
                 <Link to = {`/users/${user.id}`}> { user.name }</Link>
+                <div>Rating: {user.rating} </div>
+                <button>-</button>
+                <button>+</button>
               </li>
             );
           })

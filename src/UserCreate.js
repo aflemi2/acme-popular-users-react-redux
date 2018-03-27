@@ -30,7 +30,7 @@ class UserCreate extends Component{
         <h1>Create A User</h1>
           <form onSubmit = { onSave }>
             <input value = { name } onChange = { onChangeName } />
-            <button>Create</button>
+            <button disabled = {this.state.name.length ? false : true }>Create</button>
           </form>
       </div>
     );
