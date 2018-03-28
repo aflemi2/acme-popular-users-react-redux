@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import  { saveUser } from './store';
 
-const Users = ({ users })=> {
+const Users = ({ users, increment, decrement })=> {
   return (
     <div>
       <h1>Users</h1>
@@ -13,8 +14,8 @@ const Users = ({ users })=> {
               <li key = { user.id }>
                 <Link to = {`/users/${user.id}`}> { user.name }</Link>
                 <div>Rating: {user.rating} </div>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={()=> decrement(user) }>-</button>
+                <button onClick={()=> increment(user) }>+</button>
               </li>
             );
           })
@@ -30,4 +31,17 @@ const mapStateToProps = ({users})=>{
   };
 };
 
-export default connect(mapStateToProps)(Users);
+const mapDispatchToProps = ( dispatch , { history } )=> {
+  return {
+    increment: (user)=> {
+      user.rating++;
+      return dispatch(saveUser(user, history));
+    },
+    decrement: (user)=> {
+      user.rating--;
+      return dispatch(saveUser(user, history));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

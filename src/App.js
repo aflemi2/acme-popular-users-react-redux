@@ -27,8 +27,9 @@ class App extends Component{
       </Router>
 
     );
-  };
+  }
 }
+
 const mapDispatchToProps = (dispatch)=> {
   return {
     loadUsers: ()=> dispatch(loadUsers())

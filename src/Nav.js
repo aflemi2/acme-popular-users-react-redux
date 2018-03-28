@@ -20,7 +20,7 @@ const Nav = ({users})=> {
           if(index === 0){
             return (
               <Link to = '/users/1' key={user.id}>
-              {/* ^^hard coded route */}
+              {/* ^^No logic in components */}
                 Highest Rated User ({user.name})
               </Link>
               );
@@ -36,7 +36,7 @@ const Nav = ({users})=> {
   );
 };
 
-const mapStateToProps = ({users}) => {
+const mapStateToProps = ({users}) => { //mostPopular = users.reduce((memo, user)=>{})
   return { users };
 };
 
