@@ -31,15 +31,15 @@ const mapStateToProps = ({users})=>{
   };
 };
 
-const mapDispatchToProps = ( dispatch , { history } )=> {
+const mapDispatchToProps = ( dispatch )=> {
   return {
     increment: (user)=> {
       user.rating++;
-      return dispatch(saveUser(user, history));
+      return dispatch(saveUser(user));
     },
     decrement: (user)=> {
       user.rating--;
-      return dispatch(saveUser(user, history));
+      return dispatch(saveUser(user));
     }
   };
 };

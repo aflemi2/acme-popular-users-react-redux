@@ -54,6 +54,7 @@ const saveUser = (user, history)=> {
         })
       )
       .then( ()=> {
+        if(history)
         history.push('/users');
       });
     };
