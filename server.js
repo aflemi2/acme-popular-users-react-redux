@@ -55,9 +55,9 @@ const User = conn.define('user', {
 
 conn.sync({ force: true })
 .then( ()=> Promise.all([
-  User.create({ name: 'Goku', rating: 9001}),
+  User.create({ name: 'Goku', rating: 9}),
   User.create({ name: 'Gohan', rating: 10}),
-  User.create({ name: 'Moe', rating: 5000}),
+  User.create({ name: 'Moe', rating: 5}),
 ]));
 
 module.exports = {
