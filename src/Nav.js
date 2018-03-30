@@ -19,8 +19,7 @@ const Nav = ({users})=> {
         {users.map((user, index) => {
           if(index === 0){
             return (
-              <Link to = '/users/1' key={user.id}>
-              {/* ^^No logic in components */}
+              <Link to = {`/users/${user.id}`} key={user.id}>
                 Highest Rated User ({user.name})
               </Link>
               );
